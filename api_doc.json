@@ -1,0 +1,1182 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Yoozify API",
+    "description": "API Descriptions",
+    "version": "v1"
+  },
+  "host": "127.0.0.1:8000",
+  "schemes": [
+    "http"
+  ],
+  "basePath": "/en",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "basic": {
+      "type": "basic"
+    }
+  },
+  "security": [
+    {
+      "basic": []
+    }
+  ],
+  "paths": {
+    "/accounts/change_password/": {
+      "post": {
+        "operationId": "accounts_change_password_create",
+        "summary": "Calls Django Auth SetPasswordForm save method.",
+        "description": "Accepts the following POST parameters: new_password1, new_password2\nReturns the success/fail message.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PasswordChange"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PasswordChange"
+            }
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "parameters": []
+    },
+    "/accounts/change_password_otp/": {
+      "put": {
+        "operationId": "accounts_change_password_otp_update",
+        "description": "changing password after phone validation",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "parameters": []
+    },
+    "/accounts/forgot_password_otp/": {
+      "post": {
+        "operationId": "accounts_forgot_password_otp_create",
+        "description": "sending otp to users phone number if users forget their password",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "parameters": []
+    },
+    "/accounts/login-phone/": {
+      "get": {
+        "operationId": "accounts_login-phone_list",
+        "description": "login with phone and password",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "A page number within the paginated result set.",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/LoginUser"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "post": {
+        "operationId": "accounts_login-phone_create",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LoginUser"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/LoginUser"
+            }
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "parameters": []
+    },
+    "/accounts/login/": {
+      "get": {
+        "operationId": "accounts_login_list",
+        "description": "login with username and password",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "A page number within the paginated result set.",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/LoginUser"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "post": {
+        "operationId": "accounts_login_create",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LoginUser"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/LoginUser"
+            }
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "parameters": []
+    },
+    "/accounts/logout/": {
+      "get": {
+        "operationId": "accounts_logout_list",
+        "summary": "Calls Django logout method and delete the Token object\nassigned to the current User object.",
+        "description": "Accepts/Returns nothing.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "post": {
+        "operationId": "accounts_logout_create",
+        "summary": "Calls Django logout method and delete the Token object\nassigned to the current User object.",
+        "description": "Accepts/Returns nothing.",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "parameters": []
+    },
+    "/accounts/phones/": {
+      "get": {
+        "operationId": "accounts_phones_read",
+        "description": "user current phone number",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PhoneNumber"
+            }
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "put": {
+        "operationId": "accounts_phones_update",
+        "description": "updating phone number using confirmation link",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PhoneNumber"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PhoneNumber"
+            }
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "patch": {
+        "operationId": "accounts_phones_partial_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PhoneNumber"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PhoneNumber"
+            }
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "parameters": []
+    },
+    "/accounts/phones/change/": {
+      "get": {
+        "operationId": "accounts_phones_change_list",
+        "description": "submit confirmation link",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "parameters": []
+    },
+    "/accounts/profiles/{id}/": {
+      "get": {
+        "operationId": "accounts_profiles_read",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Profile"
+            }
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/accounts/register/": {
+      "post": {
+        "operationId": "accounts_register_create",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "parameters": []
+    },
+    "/accounts/send_otp/": {
+      "post": {
+        "operationId": "accounts_send_otp_create",
+        "description": "Before registering, users must send their one-time password (otp) to the phone number",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "parameters": []
+    },
+    "/accounts/team/": {
+      "get": {
+        "operationId": "accounts_team_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "A page number within the paginated result set.",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/User"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "parameters": []
+    },
+    "/accounts/user_profile/": {
+      "get": {
+        "operationId": "accounts_user_profile_read",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "put": {
+        "operationId": "accounts_user_profile_update",
+        "description": "update user profile",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "patch": {
+        "operationId": "accounts_user_profile_partial_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "parameters": []
+    },
+    "/accounts/validate_forgot_password_otp/": {
+      "post": {
+        "operationId": "accounts_validate_forgot_password_otp_create",
+        "description": "Validating otp for change password",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "parameters": []
+    },
+    "/accounts/validate_otp/": {
+      "post": {
+        "operationId": "accounts_validate_otp_create",
+        "description": "validating users phone numbers",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "accounts"
+        ]
+      },
+      "parameters": []
+    },
+    "/blog/detail/{id}/": {
+      "get": {
+        "operationId": "blog_detail_read",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Blog"
+            }
+          }
+        },
+        "tags": [
+          "blog"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique integer value identifying this blog.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/blog/list/": {
+      "get": {
+        "operationId": "blog_list_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "A search term.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "A page number within the paginated result set.",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Blog"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "blog"
+        ]
+      },
+      "parameters": []
+    },
+    "/contact-us/": {
+      "get": {
+        "operationId": "contact-us_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "A search term.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "A page number within the paginated result set.",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/ContactUs"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "contact-us"
+        ]
+      },
+      "post": {
+        "operationId": "contact-us_create",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContactUs"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ContactUs"
+            }
+          }
+        },
+        "tags": [
+          "contact-us"
+        ]
+      },
+      "parameters": []
+    },
+    "/contact-us/{id}/": {
+      "get": {
+        "operationId": "contact-us_read",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ContactUs"
+            }
+          }
+        },
+        "tags": [
+          "contact-us"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique integer value identifying this contact us.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/ticket/": {
+      "get": {
+        "operationId": "ticket_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "A search term.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "A page number within the paginated result set.",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Ticket"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "ticket"
+        ]
+      },
+      "post": {
+        "operationId": "ticket_create",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Ticket"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Ticket"
+            }
+          }
+        },
+        "tags": [
+          "ticket"
+        ]
+      },
+      "parameters": []
+    },
+    "/ticket/{id}/": {
+      "get": {
+        "operationId": "ticket_read",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Ticket"
+            }
+          }
+        },
+        "tags": [
+          "ticket"
+        ]
+      },
+      "delete": {
+        "operationId": "ticket_delete",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ticket"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "definitions": {
+    "PasswordChange": {
+      "required": [
+        "new_password1",
+        "new_password2"
+      ],
+      "type": "object",
+      "properties": {
+        "new_password1": {
+          "title": "New password1",
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 1
+        },
+        "new_password2": {
+          "title": "New password2",
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 1
+        }
+      }
+    },
+    "LoginUser": {
+      "required": [
+        "username",
+        "password"
+      ],
+      "type": "object",
+      "properties": {
+        "username": {
+          "title": "Username",
+          "type": "string",
+          "minLength": 1
+        },
+        "phone": {
+          "title": "Phone",
+          "type": "string",
+          "readOnly": true
+        },
+        "password": {
+          "title": "Password",
+          "type": "string",
+          "minLength": 1
+        },
+        "remember_me": {
+          "title": "Remember me",
+          "type": "boolean"
+        }
+      }
+    },
+    "PhoneNumber": {
+      "required": [
+        "phone"
+      ],
+      "type": "object",
+      "properties": {
+        "phone": {
+          "title": "Phone",
+          "type": "string",
+          "pattern": "^\\+?1?\\d{11,13}$",
+          "maxLength": 17,
+          "minLength": 1
+        }
+      }
+    },
+    "Profile": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "title": "First name",
+          "type": "string",
+          "maxLength": 255,
+          "x-nullable": true
+        },
+        "last_name": {
+          "title": "Last name",
+          "type": "string",
+          "maxLength": 255,
+          "x-nullable": true
+        },
+        "image": {
+          "title": "Image",
+          "type": "string",
+          "readOnly": true,
+          "x-nullable": true,
+          "format": "uri"
+        }
+      }
+    },
+    "User": {
+      "required": [
+        "username",
+        "profile"
+      ],
+      "type": "object",
+      "properties": {
+        "email": {
+          "title": "Email address",
+          "type": "string",
+          "format": "email",
+          "maxLength": 254,
+          "x-nullable": true
+        },
+        "username": {
+          "title": "Username",
+          "type": "string",
+          "maxLength": 40,
+          "minLength": 1
+        },
+        "phone": {
+          "title": "Phone",
+          "type": "string",
+          "readOnly": true,
+          "minLength": 1
+        },
+        "profile": {
+          "$ref": "#/definitions/Profile"
+        }
+      }
+    },
+    "Blog": {
+      "required": [
+        "title",
+        "descriptions"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "title": {
+          "title": "Title",
+          "type": "string",
+          "maxLength": 100,
+          "minLength": 1
+        },
+        "short_descriptions": {
+          "title": "Short descriptions",
+          "type": "string",
+          "readOnly": true
+        },
+        "descriptions": {
+          "title": "Descriptions",
+          "type": "string",
+          "minLength": 1
+        },
+        "image": {
+          "title": "Image",
+          "type": "string",
+          "readOnly": true,
+          "x-nullable": true,
+          "format": "uri"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string",
+          "format": "uri",
+          "maxLength": 200,
+          "x-nullable": true
+        },
+        "created": {
+          "title": "Created",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        },
+        "updated": {
+          "title": "Updated",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        },
+        "detail": {
+          "title": "Detail",
+          "type": "string",
+          "format": "uri",
+          "readOnly": true
+        }
+      }
+    },
+    "ContactUs": {
+      "required": [
+        "title",
+        "message"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "title": {
+          "title": "Title",
+          "type": "string",
+          "maxLength": 150,
+          "minLength": 1
+        },
+        "message": {
+          "title": "Message",
+          "type": "string",
+          "minLength": 1
+        },
+        "date": {
+          "title": "Created",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        },
+        "absolute_url": {
+          "title": "Absolute url",
+          "type": "string",
+          "format": "uri",
+          "readOnly": true
+        },
+        "author": {
+          "title": "Author",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "Ticket": {
+      "required": [
+        "title",
+        "content"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "title": {
+          "title": "Title",
+          "type": "string",
+          "maxLength": 255,
+          "minLength": 1
+        },
+        "ticket_id": {
+          "title": "ID",
+          "type": "string",
+          "readOnly": true,
+          "minLength": 1
+        },
+        "status": {
+          "title": "Status",
+          "type": "string",
+          "enum": [
+            "pending",
+            "closed"
+          ],
+          "readOnly": true
+        },
+        "content": {
+          "title": "Content",
+          "type": "string",
+          "minLength": 1
+        },
+        "image": {
+          "title": "Image",
+          "type": "string",
+          "readOnly": true,
+          "x-nullable": true,
+          "format": "uri"
+        },
+        "created": {
+          "title": "Created",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        },
+        "modified": {
+          "title": "Modified",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        },
+        "detail_url": {
+          "title": "Detail url",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    }
+  }
+}

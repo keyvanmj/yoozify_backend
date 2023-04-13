@@ -1,0 +1,217 @@
+msgid ""
+msgstr ""
+
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+
+msgid "account & profile"
+msgstr "حساب کاربری & پروفایل"
+
+msgid "profile"
+msgstr "پروفایل"
+
+msgid "profiles"
+msgstr "پروفایل ها"
+
+msgid "blog"
+msgstr "بلاگ"
+
+msgid "blogs"
+msgstr "بلاگ ها"
+
+msgid "contact us"
+msgstr "تماس با ما"
+
+msgid "change phone"
+msgstr "تغییر شماره تلفن"
+
+msgid "phone otp"
+msgstr "رمز یک بار مصرف برای تلفن همراه"
+
+msgid "otp"
+msgstr "رمز یک بار مصرف"
+
+msgid "support"
+msgstr "پشتیبانی"
+
+msgid "ticket"
+msgstr "تیکت"
+
+msgid "tickets"
+msgstr "تیکت ها"
+
+msgid "title"
+msgstr "عنوان"
+
+msgid "titles"
+msgstr "عناوین"
+
+msgid "description"
+msgstr "توضیح"
+
+msgid "descriptions"
+msgstr "توضیحات"
+
+msgid "image"
+msgstr "تصویر"
+
+msgid "images"
+msgstr "تصاویر"
+
+msgid "url"
+msgstr "آدرس"
+
+msgid "message"
+msgstr "پیام"
+
+msgid "messages"
+msgstr "پیام ها"
+
+msgid "code"
+msgstr "کد"
+
+msgid "phone"
+msgstr "تلفن همراه"
+
+msgid "count"
+msgstr "تعداد"
+
+msgid "logged"
+msgstr "وارد شده"
+
+msgid "forgot"
+msgstr "فراموش شده"
+
+msgid "ip"
+msgstr "آی پی"
+
+msgid "staff"
+msgstr "کارکنان"
+
+msgid "Yoozify"
+msgstr "یوزیفای"
+
+msgid "activate"
+msgstr "فعال کردن"
+
+msgid "deactivate"
+msgstr "غیر فعال کردن"
+
+msgid "status"
+msgstr "وضعیت"
+
+msgid "short"
+msgstr "کوتاه"
+
+msgid "us"
+msgstr "ما"
+
+msgid "token"
+msgstr "توکن"
+
+msgid "tokens"
+msgstr "توکن ها"
+
+msgid "content"
+msgstr "محتوا"
+
+msgid "phone number not available for use"
+msgstr "شماره تلفن برای استفاده در دسترس نیست"
+
+msgid "your number changed successfully"
+msgstr "شماره شما با موفقیت تغییر کرد"
+
+msgid "for registration please record your phone number first"
+msgstr "برای ثبت نام لطفا ابتدا شماره تلفن خود را ثبت کنید"
+
+msgid "phone number have account associated."
+msgstr "شماره تلفن دارای حساب مرتبط است."
+
+msgid "you have exceeded the OTP sending limit. please contact the admin for support."
+msgstr "شما از محدودیت ارسال رمز یک بارمصرف فراتر رفته اید. لطفا برای پشتیبانی با ادمین تماس بگیرید."
+
+msgid "phone number must be entered in the format: '09***' or '+989***. up to 11 or 13 digits allowed."
+msgstr "شماره تلفن باید در فرمت: '***09' یا '***98+' وارد شود. حداکثر 11 یا 13 رقم مجاز است."
+
+msgid "OTP incorrect. please try again"
+msgstr "رمز یک بارمصرف وارد شده اشتباه است. لطفا دوباره تلاش کنید"
+
+msgid "phone and otp are required"
+msgstr "تلفن و رمز یک بار مصرف اجباری هستند"
+
+msgid "incorrect phone number."
+msgstr "شماره تلفن نادرست است"
+
+msgid "OTP code matched. you can proceed to register"
+msgstr "کد رمز یک بار مصرف مطابقت دارد. می توانید ثبت نام کنید"
+
+msgid "your account has been created successfully."
+msgstr "حساب شما با موفقیت ایجاد شد."
+
+msgid "your otp was not verified. please go back and verify otp"
+msgstr "رمزیک بارمصرف شما تأیید نشده است. لطفاً برگردید و رمزیک بارمصرف را تأیید کنید"
+
+msgid "this username is not registered."
+msgstr "این نام کاربری ثبت نشده است."
+
+msgid "this phone is not registered."
+msgstr "این شماره تلفن ثبت نشده است."
+
+msgid "your profile has been updated."
+msgstr "مشخصات شما به روز شده است."
+
+msgid "please enter your phone number."
+msgstr "لطفا شماره تلفن خود را وارد نمایید."
+
+msgid "you can create a new account for this number."
+msgstr "شما می توانید یک حساب کاربری جدید برای این شماره ایجاد کنید."
+
+
+msgid "OTP sending error. please try after some time."
+msgstr "خطای ارسال رمز یک بارمصرف. لطفا دقایقی دیگر تلاش نمائید."
+
+msgid "OTP has been sent for password reset."
+msgstr "رمز یک بارمصرف برای بازنشانی رمز عبور ارسال شده است."
+
+msgid "second"
+msgstr "ثانیه"
+
+msgid "try after"
+msgstr "تلاش کنید بعد از"
+
+msgid "phone number not recognised."
+msgstr "شماره تلفن شناسایی نشد."
+
+msgid "OTP matched. please proceed to create new password"
+msgstr "رمز یک بار مصرف مطابقت دارد. لطفا برای ایجاد رمز عبور جدید ادامه دهید"
+
+msgid "OTP sent successfully."
+msgstr "رمزیک بارمصرف با موفقیت ارسال شد."
+
+msgid "your message has been sent."
+msgstr "پیام شما ارسال شد"
+
+msgid "your ticket has been successfully sent"
+msgstr "تیکت شما با موفقیت ارسال شد"
+
+msgid "pending"
+msgstr "درحال انتظار"
+
+msgid "closed"
+msgstr "بسته شد"
+
+msgid "reply"
+msgstr "پاسخ"
+
+msgid "question"
+msgstr "سوال"
+
+msgid "parent"
+msgstr "والد"
+
+msgid "contact"
+msgstr "مخاطب"
